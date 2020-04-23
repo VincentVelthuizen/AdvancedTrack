@@ -30,3 +30,6 @@ class SMS_store:
 
     def delete(self, index):
         self.messages.pop(index)
+
+    def clear(self):
+        self.messages = list()

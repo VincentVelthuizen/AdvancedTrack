@@ -15,3 +15,6 @@ print(my_inbox.get_unread_indexes())
 
 my_inbox.delete(0)
 print(my_inbox)
+
+my_inbox.clear()
+print(my_inbox.message_count())
