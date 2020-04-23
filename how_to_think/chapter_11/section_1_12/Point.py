@@ -6,6 +6,9 @@ class Point:
         self.x = x
         self.y = y
 
+    def __str__(self):
+        return "({0}, {1})".format(self.x, self.y)
+
     def distance_from_origin(self):
         """ Compute my distance from the origin """
         return ((self.x ** 2) + (self.y ** 2)) ** 0.5
@@ -16,5 +19,5 @@ class Point:
         my = (self.y + target.y) / 2
         return Point(mx, my)
 
-    def __str__(self):
-        return "({0}, {1})".format(self.x, self.y)
+    def reflect_x(self):
+        return Point(self.x, -1 * self.y)
