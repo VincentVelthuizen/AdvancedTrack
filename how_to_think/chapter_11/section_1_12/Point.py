@@ -24,3 +24,12 @@ class Point:
 
     def slope_from_origin(self):
         return self.y / self.x
+
+    def get_line_to(self, target):
+        delta_x = self.x - target.x
+        delta_y = self.y - target.y
+
+        slope = delta_y / delta_x
+        y_intercept = self.y - (slope * self.x)
+
+        return slope, y_intercept
