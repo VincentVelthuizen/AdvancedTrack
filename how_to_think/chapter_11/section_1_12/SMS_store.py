@@ -27,3 +27,6 @@ class SMS_store:
         _, from_number, time_arrived, text_of_SMS = self.messages[index]
         self.messages[index] = (True, from_number, time_arrived, text_of_SMS)
         return from_number, time_arrived, text_of_SMS
+
+    def delete(self, index):
+        self.messages.pop(index)
