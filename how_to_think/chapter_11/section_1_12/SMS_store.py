@@ -15,3 +15,15 @@ class SMS_store:
 
     def message_count(self):
         return len(self.messages)
+
+    def get_unread_indexes(self):
+        unread = []
+        for index, (read, _, _, _) in enumerate(self.messages):
+            if not read:
+                unread.append(index)
+        return unread
+
+    def get_message(self, index):
+        _, from_number, time_arrived, text_of_SMS = self.messages[index]
+        self.messages[index] = (True, from_number, time_arrived, text_of_SMS)
+        return from_number, time_arrived, text_of_SMS
