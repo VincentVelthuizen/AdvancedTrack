@@ -13,3 +13,12 @@ def test_equal(actual, expected, places=5):
             return True
     print("\tTest Failed: expected {} but got {}".format(expected, actual))
     return False
+
+
+def test(result):
+    if result:
+        print("\tPass")
+        return True
+    else:
+        print("\tTest Failed")
+        return False
