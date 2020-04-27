@@ -27,6 +27,9 @@ class MyTime:
     def __gt__(self, other):
         return self.to_seconds() > other.to_seconds()
 
+    def __ge__(self, other):
+        return self.to_seconds() >= other.to_seconds()
+
     def __lt__(self, other):
         return self.to_seconds() < other.to_seconds()
 
