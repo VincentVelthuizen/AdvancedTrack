@@ -9,6 +9,18 @@ class Point:
     def __str__(self):
         return "({0}, {1})".format(self.x, self.y)
 
+    def __add__(self, other):
+        return Point(self.x + other.x, self.y + other.y)
+
+    def __mul__(self, other):
+        return self.x * other.x + self.y * other.y
+
+    def __rmul__(self, other):
+        return Point(other * self.x, other * self.y)
+
+    def reverse(self):
+        (self.x, self.y) = (self.y, self.x)
+
     def distance_from_origin(self):
         """ Compute my distance from the origin """
         return ((self.x ** 2) + (self.y ** 2)) ** 0.5
