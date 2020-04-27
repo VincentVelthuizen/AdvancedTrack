@@ -24,7 +24,13 @@ class Rectangle:
         self.corner.y += delta_y
 
     def area(self):
+        """ Return the area of the rectangle """
         return self.width * self.height
+
+    def flip(self):
+        """ Flip the height and width of the rectangle """
+        # This is a trick to spare a "helper variable" we covered it in the basic track
+        self.width, self.height = self.height, self.width
 
 
 if __name__ == "__main__":
