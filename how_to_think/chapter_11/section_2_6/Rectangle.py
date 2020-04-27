@@ -36,6 +36,28 @@ class Rectangle:
         # This is a trick to spare a "helper variable" we covered it in the basic track
         self.width, self.height = self.height, self.width
 
+    def contains(self, point):
+        """ Is point contained within this rectangle? """
+        # Technically there are 4 comparisons here. Python struggles with the "newline" after the "and" so it needs to
+        # be "escaped" (the backslash)
+        # See the alternative version below if this version hurts your brain
+        return (self.corner.x <= point.x < (self.corner.x + self.width)) and \
+               (self.corner.y <= point.y < (self.corner.y + self.height))
+
+    def contains(self, point):
+        inside = True       # assume the point is inside the rectangle and look for proof of the contrary
+
+        if self.corner.x > point.x:     # the top left corner is to the right of the point it must be outside the rect
+            inside = False
+        if point.x >= (self.corner.x + self.width):
+            inside = False
+        if self.corner.y > point.y:
+            inside = False
+        if point.y >= (self.corner.y + self.height):
+            inside = False
+
+        return inside
+
 
 if __name__ == "__main__":
     # this only gets executed when the file is run directly, not when it is included in another
