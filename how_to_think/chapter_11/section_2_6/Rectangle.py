@@ -23,6 +23,9 @@ class Rectangle:
         self.corner.x += delta_x
         self.corner.y += delta_y
 
+    def area(self):
+        return self.width * self.height
+
 
 if __name__ == "__main__":
     # this only gets executed when the file is run directly, not when it is included in another
