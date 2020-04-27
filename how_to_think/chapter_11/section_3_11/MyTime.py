@@ -30,3 +30,6 @@ class MyTime:
     def after(self, time2):
         """ Return True if I am strictly greater than time2 """
         return self.to_seconds() > time2.to_seconds()
+
+    def between(self, t1, t2):
+        return self.after(t1) and t2.after(self)
