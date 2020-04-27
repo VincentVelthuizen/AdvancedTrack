@@ -44,7 +44,7 @@ class Rectangle:
         return (self.corner.x <= point.x < (self.corner.x + self.width)) and \
                (self.corner.y <= point.y < (self.corner.y + self.height))
 
-    def contains(self, point):
+    def contains_alternative(self, point):
         inside = True       # assume the point is inside the rectangle and look for proof of the contrary
 
         if self.corner.x > point.x:     # the top left corner is to the right of the point it must be outside the rect
@@ -57,6 +57,23 @@ class Rectangle:
             inside = False
 
         return inside
+
+    def get_corners(self):
+        top_left = self.corner
+        top_right = Point(self.corner.x + self.width, self.corner.y)
+        bottom_left = Point(self.corner.x, self.corner.y + self.height)
+        bottom_right = Point(self.corner.x + self.width, self.corner.y + self.height)
+        return [top_left, top_right, bottom_left, bottom_right]
+
+    def collide(self, other_rectangle):
+        colliding = False
+        for corner in self.get_corners():
+            if other_rectangle.contains(corner):
+                colliding = True
+        for corner in other_rectangle.get_corners():
+            if self.contains(corner):
+                colliding = True
+        return colliding
 
 
 if __name__ == "__main__":
