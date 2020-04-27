@@ -24,12 +24,21 @@ class MyTime:
     def __sub__(self, other):
         return MyTime(0, 0, self.to_seconds() - other.to_seconds())
 
+    def __gt__(self, other):
+        return self.to_seconds() > other.to_seconds()
+
+    def __lt__(self, other):
+        return self.to_seconds() < other.to_seconds()
+
+    def __eq__(self, other):
+        return self.to_seconds() == other.to_seconds()
+
     def to_seconds(self):
         return self.hours * 3600 + self.minutes * 60 + self.seconds
 
     def after(self, time2):
         """ Return True if I am strictly greater than time2 """
-        return self.to_seconds() > time2.to_seconds()
+        return self > time2
 
     def between(self, t1, t2):
-        return self.after(t1) and t2.after(self)
+        return t1 <= self < t2
