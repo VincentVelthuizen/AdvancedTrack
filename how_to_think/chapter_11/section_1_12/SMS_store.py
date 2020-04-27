@@ -6,8 +6,10 @@ class SMS_store:
 
     def __str__(self):
         text = ""
-        for number, (_, from_number, time_arrived, text_of_SMS) in enumerate(self.messages):
-            text += "{0}: {1} ({2})\n{3}\n".format(number, from_number, time_arrived, text_of_SMS)
+
+        for index, (_, from_number, time_arrived, text_of_SMS) in enumerate(self.messages):
+            text += "{0}: {1} ({2})\n{3}\n".format(index, from_number, time_arrived, text_of_SMS)
+
         return text
 
     def add_new_arrival(self, from_number, time_arrived, text_of_SMS):
