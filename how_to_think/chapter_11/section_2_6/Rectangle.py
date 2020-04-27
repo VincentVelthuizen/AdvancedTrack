@@ -27,6 +27,10 @@ class Rectangle:
         """ Return the area of the rectangle """
         return self.width * self.height
 
+    def perimeter(self):
+        """  Return the perimeter of the rectangle """
+        return 2 * (self.width + self.height)
+
     def flip(self):
         """ Flip the height and width of the rectangle """
         # This is a trick to spare a "helper variable" we covered it in the basic track
