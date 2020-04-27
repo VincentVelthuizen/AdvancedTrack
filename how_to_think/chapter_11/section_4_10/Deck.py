@@ -37,3 +37,12 @@ class Deck:
 
     def is_empty(self):
         return self.cards == []
+
+    def deal(self, hands, num_cards=999):
+        num_hands = len(hands)
+        for i in range(num_cards):
+            if self.is_empty():
+                break
+            card = self.pop()
+            hand = hands[i % num_hands]
+            hand.add(card)
