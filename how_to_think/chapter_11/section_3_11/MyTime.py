@@ -36,6 +36,9 @@ class MyTime:
     def to_seconds(self):
         return self.hours * 3600 + self.minutes * 60 + self.seconds
 
+    def increment(self, seconds):
+        return MyTime(0, 0, self.to_seconds() + seconds)
+
     def after(self, time2):
         """ Return True if I am strictly greater than time2 """
         return self > time2
