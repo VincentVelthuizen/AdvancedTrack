@@ -1,4 +1,9 @@
+import random
 from turtle import Turtle, Screen
+
+
+def get_flat_tyre_distance():
+    return random.random(500, 1000)
 
 
 class TurtleGTX(Turtle):
@@ -6,13 +11,19 @@ class TurtleGTX(Turtle):
     def __init__(self):
         super().__init__()
         self.odometer = 0
+        self.flat_tyre = get_flat_tyre_distance()
 
     def forward(self, distance):
+        if self.odometer >= self.flat_tyre:
+            raise Exception()
         super().forward(distance)
         self.odometer += abs(distance)
 
     def get_odo(self):
         return self.odometer
+
+    def change_tyre(self):
+        self.flat_tyre += get_flat_tyre_distance()
 
 
 if __name__ == "__main__":
